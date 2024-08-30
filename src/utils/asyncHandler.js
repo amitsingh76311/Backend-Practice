@@ -1,8 +1,8 @@
-// by promise how we can build wrapper class of
+// we create resusable function those which we can use in a contoller or basically higher order function here written
 
-const asyncHandler = (reqHandler) => {
-  (req, res, next) => {
-    Promise.resolve(reqHandler()).catch((error) => next(error));
+const asyncHandler = (requestHandler) => {
+   return (req, res, next) => {
+    Promise.resolve(requestHandler()).catch((error) => next(error));
   };
 };
 export {asyncHandler};
